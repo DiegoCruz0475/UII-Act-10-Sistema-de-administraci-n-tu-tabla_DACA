@@ -1,0 +1,28 @@
+{% extends "cliente/base.html" %}
+
+{% block body %}
+<h3 class="m-4 text-center">Todos los cliente</h3>
+
+{% if cliente %}
+<div class="row">
+    {% for cliente in cliente %}
+    <div class="col-md-4">
+        <div class="card bg-light mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ cliente.nombre }}</h5>
+                <p class="card-text">Apellido: {{ cliente.apellido }}</p>
+                <p class="card-text">Correo: {{ cliente.correo }}</p>
+                <!-- Botón para eliminar -->
+                <a href="{% url 'delete' cliente.id %}" class="btn btn-danger"
+                   onclick="return confirm('¿Seguro que quieres eliminar este cliente?');">
+                   Eliminar
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p class="text-center">No hay cliente disponibles.</p>
+{% endif %}
+{% endblock %}

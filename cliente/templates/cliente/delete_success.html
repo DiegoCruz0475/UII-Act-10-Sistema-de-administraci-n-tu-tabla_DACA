@@ -1,0 +1,10 @@
+{% extends "cliente/base.html" %}
+
+{% block body %}
+<div class="alert alert-success text-center m-4">
+    ¡El cliente fue eliminado con éxito!
+</div>
+<div class="text-center">
+    <a href="{% url 'index' %}" class="btn btn-primary">Volver al listado</a>
+</div>
+{% endblock %}
